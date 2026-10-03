@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Music Diary</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body data-mood="happy">
+    <div class="app-shell">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">我的音乐日记</p>
+          <h1>Music Diary</h1>
+        </div>
+        <div class="mood-indicator">
+          <span class="indicator-dot"></span>
+          <span id="currentMoodLabel">快乐</span>
+        </div>
+      </header>
+
+      <main class="layout">
+        <section class="panel form-panel">
+          <h2>记��今天的音乐</h2>
+
+          <form id="entryForm">
+            <label>
+              日期
+              <input type="date" id="entryDate" required />
+            </label>
+
+            <label>
+              歌曲名称
+              <input type="text" id="songName" placeholder="例如：Night Dancer" required />
+            </label>
+
+            <label>
+              歌手
+              <input type="text" id="artistName" placeholder="例如：Imagine Dragons" required />
+            </label>
+
+            <label>
+              心情
+              <select id="moodSelect" required>
+                <option value="happy">快乐</option>
+                <option value="sad">悲伤</option>
+              </select>
+            </label>
+
+            <label>
+              感受
+              <textarea
+                id="notes"
+                rows="4"
+                placeholder="记录这首歌带给你的感觉，例如：这首歌让我想起一次特别的旅行。"
+                required
+              ></textarea>
+            </label>
+
+            <button type="submit">保存记录</button>
+          </form>
+        </section>
+
+        <section class="panel calendar-panel">
+          <div class="calendar-header">
+            <button id="prevMonth" aria-label="上一月">←</button>
+            <h3 id="monthLabel">月份</h3>
+            <button id="nextMonth" aria-label="下一月">→</button>
+          </div>
+
+          <div class="weekday-row">
+            <span>日</span>
+            <span>一</span>
+            <span>二</span>
+            <span>三</span>
+            <span>四</span>
+            <span>五</span>
+            <span>六</span>
+          </div>
+
+          <div id="calendar" class="calendar-grid"></div>
+        </section>
+      </main>
+
+      <section class="panel list-panel">
+        <div class="list-header">
+          <h2 id="selectedDateTitle">今天的记录</h2>
+        </div>
+        <div id="entriesList" class="entries-list"></div>
+      </section>
+    </div>
+
+    <script src="./app.js"></script>
+  </body>
+</html>
